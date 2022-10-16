@@ -26,6 +26,9 @@ export default function Header() {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/about">About</NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/use-effect">UseEffect</NavLink>
+                        </li>
                         
                     </ul>
                    

@@ -7,6 +7,7 @@ import Register from './pages/Register/Register';
 import About from './pages/About/About';
 import Header from './components/Header/Header';
 import Counter from './pages/hooks/Counter';
+import UseEffectDemo from './pages/hooks/UseEffectDemo';
 
 //cấu hình routing
 
@@ -24,6 +25,7 @@ function App() {
       */}
 
 
+
       <Switch>
 
         <Route exact path="/home" component={Home} />
@@ -31,6 +33,7 @@ function App() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/about" component={About} />
         <Route exact path="/counter" component={Counter} />
+        <Route exact path="/use-effect" component={UseEffectDemo} />
 
         {/* khi không có / trang cụ thể thì mặc đinh hiện Home */}
         <Route exact path="/" component={Home} />
