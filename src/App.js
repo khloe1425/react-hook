@@ -8,6 +8,8 @@ import About from './pages/About/About';
 import Header from './components/Header/Header';
 import Counter from './pages/hooks/Counter';
 import UseEffectDemo from './pages/hooks/UseEffectDemo';
+import ApiRcc from './pages/hooks/ApiRcc';
+import ApiRfc from './pages/hooks/ApiRfc';
 
 //cấu hình routing
 
@@ -25,7 +27,6 @@ function App() {
       */}
 
 
-
       <Switch>
 
         <Route exact path="/home" component={Home} />
@@ -34,6 +35,8 @@ function App() {
         <Route exact path="/about" component={About} />
         <Route exact path="/counter" component={Counter} />
         <Route exact path="/use-effect" component={UseEffectDemo} />
+        <Route exact path="/apircc" component={ApiRcc} />
+        <Route exact path="/apirfc" component={ApiRfc} />
 
         {/* khi không có / trang cụ thể thì mặc đinh hiện Home */}
         <Route exact path="/" component={Home} />

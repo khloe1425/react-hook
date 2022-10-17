@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 
 //biến toàn cục
+//chỉ tạo 1 lần, khi render lại UI sẽ không tạo lại nữa
 const arrDiaChi = [
     {
         id: "HCM",
@@ -23,6 +24,7 @@ const arrDiaChi = [
         ]
     }
 ]
+let timeOut = "";
 
 export default function UseEffectDemo() {
     //khai báo biến trong hàm cục bộ
@@ -51,7 +53,7 @@ export default function UseEffectDemo() {
         //vẫn chạy khi load ứng dụng
         //nhưng ở lần 2 tức là khi updating thì chỉ chạy khi number đổi
         setLike(like + 1)
-    }, [number]);
+    }, [number]);//shallow compare (number,string, boolean)
 
 
     let [idTP, setTP] = useState("");
@@ -68,6 +70,25 @@ export default function UseEffectDemo() {
             console.log("arrQuan", arrQuan);
         }
     },[idTP]);//
+
+
+    useEffect(() => { 
+        timeOut =setInterval(() => { 
+            console.log("interval");
+         }, 1000);
+
+         return () => {
+            //code trong hàm sẽ được thực thi khi component biến mất khỏi UI
+            //dùng để tắt các server chạy ngầm (willUnmount)
+            console.log("willUnmount");
+            clearInterval(timeOut);
+         }
+
+     },[]);// chạy mouting
+
+
+
+
 
 
     let renderQuan = () => {
