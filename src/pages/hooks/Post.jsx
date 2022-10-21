@@ -8,7 +8,7 @@ import React, { memo } from 'react'
             <p className="card-text">
                 <img className='w-25' src="https://i.pravatar.cc/?u=77" alt="" />
             </p>
-            Like: <span>{props.like}</span>
+            {/* Like: <span>{props.like}</span> */}
         </div>
     )
 }

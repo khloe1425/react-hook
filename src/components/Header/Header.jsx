@@ -38,6 +38,15 @@ export default function Header() {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/usecallback">UseCallBack</NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/usememo">UseMemo</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/useref">UseRef</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/reduxdemo">ReduxDemo</NavLink>
+                        </li>
                         
                     </ul>
                    

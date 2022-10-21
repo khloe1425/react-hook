@@ -11,9 +11,11 @@ import UseEffectDemo from './pages/hooks/UseEffectDemo';
 import ApiRcc from './pages/hooks/ApiRcc';
 import ApiRfc from './pages/hooks/ApiRfc';
 import UseCallBackDemo from './pages/hooks/UseCallBackDemo';
+import useMemoDemo from './pages/hooks/useMemoDemo';
+import UseRefDemo from './pages/hooks/UseRefDemo';
+import ReduxDemo from './pages/ReduxDemo/ReduxDemo';
 
 //cấu hình routing
-
 
 
 function App() {
@@ -38,7 +40,9 @@ function App() {
         <Route exact path="/apircc" component={ApiRcc} />
         <Route exact path="/apirfc" component={ApiRfc} />
         <Route exact path="/usecallback" component={UseCallBackDemo} />
-
+        <Route exact path="/usememo" component={useMemoDemo} />
+        <Route exact path="/useref" component={UseRefDemo} />
+        <Route exact path="/reduxdemo" component={ReduxDemo} />
         {/* khi không có / trang cụ thể thì mặc đinh hiện Home */}
         <Route exact path="/" component={Home} />
       </Switch>

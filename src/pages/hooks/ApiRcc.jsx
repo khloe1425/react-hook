@@ -31,7 +31,7 @@ export default class ApiRcc extends Component {
         });
 
         promise.catch((error) => { console.log(error) })
-    }
+    }//tạo 1 lần 
 
 
     renderPhim = () => {
@@ -47,7 +47,7 @@ export default class ApiRcc extends Component {
 
             </div>
         })
-    }
+    }//tạo 1 lần
 
 
     render() {
@@ -60,7 +60,7 @@ export default class ApiRcc extends Component {
                 </div>
             </div>
         )
-    }
+    }//tạo lại khi updating
 
 
     componentDidMount(){
