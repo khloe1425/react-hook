@@ -10,6 +10,7 @@ import Counter from './pages/hooks/Counter';
 import UseEffectDemo from './pages/hooks/UseEffectDemo';
 import ApiRcc from './pages/hooks/ApiRcc';
 import ApiRfc from './pages/hooks/ApiRfc';
+import UseCallBackDemo from './pages/hooks/UseCallBackDemo';
 
 //cấu hình routing
 
@@ -26,7 +27,6 @@ function App() {
           exact: so sánh bằng chính xác đường dẫn
       */}
 
-
       <Switch>
 
         <Route exact path="/home" component={Home} />
@@ -37,6 +37,7 @@ function App() {
         <Route exact path="/use-effect" component={UseEffectDemo} />
         <Route exact path="/apircc" component={ApiRcc} />
         <Route exact path="/apirfc" component={ApiRfc} />
+        <Route exact path="/usecallback" component={UseCallBackDemo} />
 
         {/* khi không có / trang cụ thể thì mặc đinh hiện Home */}
         <Route exact path="/" component={Home} />
