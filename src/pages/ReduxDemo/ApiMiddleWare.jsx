@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { TOKENCYBER, URL_API } from '../../util/setting';
 import { LAY_DS_PHIM } from '../../redux/types/phimType';
+import { layDanhSachPhimAction } from '../../redux/action/phimAction';
 
 
 
@@ -46,7 +47,7 @@ export default function ApiMiddleWare() {
      * Tổ chức action creator => tạo action loại function
      * Nếu action có call api thì sẽ đem toàn bộ code api sang file action
      * => bị bất đồng bộ
-     * Middleware => xử lý bất động giữa API và dispatch data lên redux + tổ chức theo action creator
+     *? Middleware => xử lý bất động giữa API và dispatch data lên redux + tổ chức theo action creator
      * 
      * Middleware (redux-thunk, redux saga) 
      * => sinh ra 2 hàm dispatch cho redux 
@@ -54,29 +55,12 @@ export default function ApiMiddleWare() {
      * => dispatch2 đẩy data lên redux
      */
     //hàm call api
-    let action = (dispatch2) => {
-      let promise = axios({
-        method: 'get',
-        url: `${URL_API}/QuanLyPhim/LayDanhSachPhim?maNhom=GP04`,
-        headers: {
-          "TokenCybersoft": TOKENCYBER
-        }
-      });
-      promise.then((result) => {
-        // console.log(result.data);
-        let action2 = {
-          type: LAY_DS_PHIM,
-          mangPhim: result.data.content
-        }
+    //let action = layDanhSachPhimAction("maPhim");//gọi hàm mà ko thông qua dispatch
 
-        dispatch2(action2);//đẩy dữ liệu lên redux
+    //nhận kết quả trả về là hàm chưa gọi
+    let action = layDanhSachPhimAction("GP04");
 
-      });
-      promise.catch((error) => {
-        console.log(error)
-      });
-    }
-
+    //dispatch: truyền vào hàm chưa gọi
     dispatch(action);//gọi hàm call api
 
 
