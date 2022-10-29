@@ -4,7 +4,6 @@ import { LAY_DS_PHIM } from "../types/phimType";
 
 export const layDanhSachPhimAction = (maNhom='GP01') =>{
 
-
     //trả về hàm chưa gọi
     return (dispatch2) => {
         let promise = axios({
@@ -30,17 +29,7 @@ export const layDanhSachPhimAction = (maNhom='GP01') =>{
     
       }
 
-
-
 }
-
-
-
-
-
-
-
-
 
 
 export const layChiTietPhimAction = () =>{

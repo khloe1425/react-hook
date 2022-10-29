@@ -15,6 +15,10 @@ import useMemoDemo from './pages/hooks/useMemoDemo';
 import UseRefDemo from './pages/hooks/UseRefDemo';
 import ReduxDemo from './pages/ReduxDemo/ReduxDemo';
 import ApiMiddleWare from './pages/ReduxDemo/ApiMiddleWare';
+import Detail from './pages/Detail/Detail';
+import Profile from './pages/Profile/Profile';
+import { HomeTemplate } from './templates/HomeTemplate';
+import { FormTemplate } from './templates/FormTemplate';
 
 //cấu hình routing
 
@@ -23,30 +27,53 @@ function App() {
   return (
     <BrowserRouter>
 
-      <Header/>
-      
+      {/* <Header /> // dùng cho tất cả trang*/}
       {/* đường path /home sẽ hiện component Home */}
       {/* nếu không có exact thì so sanh đường dẫn có chứa (inclued) ký tự thì thỏa đk 
           exact: so sánh bằng chính xác đường dẫn
       */}
-
+      {/* Template: mẫu UI được dùng chung cho nhiều trang
+          + HomeTemplate (Header - dùng chung cho các trang bình thường)
+          + FormTemplate (thiêt kế không dùng header)
+          + AdminTempate (sidebar, header riêng của admin)
+       */}
+      {/* HOC: truyền component này vào props của component khác 
+       Home => props của HomeTemplate */}
       <Switch>
+        {/* <Route exact path="/home" render={(propsRoute) => {
+          return <div>
+            <Header />
+            <Home {...propsRoute} />
+          </div>
+        }} />
+        <Route exact path="/about" render={(propsRoute) => {
+          return <div>
+            <Header />
+            <About {...propsRoute} />
 
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/counter" component={Counter} />
-        <Route exact path="/use-effect" component={UseEffectDemo} />
-        <Route exact path="/apircc" component={ApiRcc} />
-        <Route exact path="/apirfc" component={ApiRfc} />
-        <Route exact path="/usecallback" component={UseCallBackDemo} />
-        <Route exact path="/usememo" component={useMemoDemo} />
-        <Route exact path="/useref" component={UseRefDemo} />
-        <Route exact path="/reduxdemo" component={ReduxDemo} />
-        <Route exact path="/apiredux" component={ApiMiddleWare} />
+          </div>
+        }} /> */}
+
+
+        <HomeTemplate exact path="/home" component={Home} />
+        <HomeTemplate exact path="/about" component={About} />
+
+        <FormTemplate exact path="/login" component={Login} />
+        <FormTemplate exact path="/register" component={Register} />
+
+        <HomeTemplate exact path="/counter" component={Counter} />
+        <HomeTemplate exact path="/use-effect" component={UseEffectDemo} />
+        <HomeTemplate exact path="/apircc" component={ApiRcc} />
+        <HomeTemplate exact path="/apirfc" component={ApiRfc} />
+        <HomeTemplate exact path="/usecallback" component={UseCallBackDemo} />
+        <HomeTemplate exact path="/usememo" component={useMemoDemo} />
+        <HomeTemplate exact path="/useref" component={UseRefDemo} />
+        <HomeTemplate exact path="/reduxdemo" component={ReduxDemo} />
+        <HomeTemplate exact path="/apiredux" component={ApiMiddleWare} />
+        <HomeTemplate exact path="/detail/:maPhim" component={Detail} />
+        <HomeTemplate exact path="/profile" component={Profile} />
         {/* khi không có / trang cụ thể thì mặc đinh hiện Home */}
-        <Route exact path="/" component={Home} />
+        <HomeTemplate exact path="/" component={Home} />
       </Switch>
 
 
