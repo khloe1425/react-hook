@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
@@ -20,12 +20,18 @@ import Profile from './pages/Profile/Profile';
 import { HomeTemplate } from './templates/HomeTemplate';
 import { FormTemplate } from './templates/FormTemplate';
 
+// hỗ trợ sử dụng history của Router cho các file không phải component
+import {createBrowserHistory} from 'history';
+import LoginUser from './pages/LoginUser/LoginUser';
+
+export const history = createBrowserHistory();
+
+
+
 //cấu hình routing
-
-
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
 
       {/* <Header /> // dùng cho tất cả trang*/}
       {/* đường path /home sẽ hiện component Home */}
@@ -58,7 +64,7 @@ function App() {
         <HomeTemplate exact path="/home" component={Home} />
         <HomeTemplate exact path="/about" component={About} />
 
-        <FormTemplate exact path="/login" component={Login} />
+        <FormTemplate exact path="/login" component={LoginUser} />
         <FormTemplate exact path="/register" component={Register} />
 
         <HomeTemplate exact path="/counter" component={Counter} />
@@ -77,7 +83,7 @@ function App() {
       </Switch>
 
 
-    </BrowserRouter>
+    </Router>
   );
 }
 
