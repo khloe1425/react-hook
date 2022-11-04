@@ -1,7 +1,25 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 export default function Header() {
+
+    let {uLogin} = useSelector(state => state.QLNDReducer)
+
+    let renderName = () => {
+
+        if(uLogin != null){
+            //đã đăng nhập
+            return <NavLink className="nav-link" to="/profile">Hello {uLogin.hoTen}</NavLink>
+
+        }else{
+            //chưa đăng
+            return <NavLink className="nav-link" to="/login">Login</NavLink>
+        }
+
+    }
+
+
     return (
         <header>
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -15,7 +33,9 @@ export default function Header() {
                             <NavLink className="nav-link" to="/home">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/login">Login</NavLink>
+                            
+                            {renderName()}
+
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/register">Register</NavLink>

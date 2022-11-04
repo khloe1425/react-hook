@@ -4,7 +4,7 @@
 // dispatch cần truyền vào hàm chưa gọi
 
 import axios from "axios";
-import { TOKENCYBER, URL_API } from "../../util/setting";
+import { ACCESS_TOKEN, TOKENCYBER, URL_API, USERLOGIN } from "../../util/setting";
 
 import { history } from "../../App";
 
@@ -53,6 +53,20 @@ export const dangNhapAction = (userInfo) => {
         });
         promise.then((result) => { 
             console.log(result.data);
+            //Luu xuong local storage
+            
+            localStorage.setItem(ACCESS_TOKEN,result.data.content.accessToken);
+
+            let userInfo = JSON.stringify(result.data.content);
+
+            localStorage.setItem(USERLOGIN,userInfo);
+           
+            let action = {
+                type: "LOGIN",
+                uLogin: userInfo
+            }
+            dispatch2(action);
+
 
          });
          promise.catch((error) => { 
