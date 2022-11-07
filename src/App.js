@@ -23,6 +23,8 @@ import { FormTemplate } from './templates/FormTemplate';
 // hỗ trợ sử dụng history của Router cho các file không phải component
 import {createBrowserHistory} from 'history';
 import LoginUser from './pages/LoginUser/LoginUser';
+import AntdDemo from './pages/AntdDemo/AntdDemo';
+import { AdminTemplate } from './templates/AdminTemplate';
 
 export const history = createBrowserHistory();
 
@@ -78,6 +80,7 @@ function App() {
         <HomeTemplate exact path="/apiredux" component={ApiMiddleWare} />
         <HomeTemplate exact path="/detail/:maPhim" component={Detail} />
         <HomeTemplate exact path="/profile" component={Profile} />
+        <AdminTemplate exact path="/antddemo" component={AntdDemo} />
         {/* khi không có / trang cụ thể thì mặc đinh hiện Home */}
         <HomeTemplate exact path="/" component={Home} />
       </Switch>
